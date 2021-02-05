@@ -1,0 +1,14 @@
+[Unit]
+Description=News bot calling service
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+Environment=GOOGLE_APPLICATION_CREDENTIALS=
+WorkingDirectory=/srv/newsbot
+ExecStart=/srv/newsbot/newsbot
+PrivateTmp=true
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
